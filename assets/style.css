@@ -1,0 +1,219 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{ 
+   
+    --text-color:white;
+    --bg-url: url(/assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-color-hover: rgba(0 , 0, 0, 0.02);
+    --highlight-color:rgba(255, 255, 255, 0.2);
+    --swicht-bg-url: url(./moon-stars.svg);
+}   
+.light{
+
+    --text-color: black;
+    --bg-url: url(/assets/bg-mobile-light.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover: rgba(0 , 0, 0, 0.02);
+    --highlight-color:rgba(0, 0, 0, 0.1);
+    --swicht-bg-url: url(./sun.svg);
+}
+
+
+body{
+/*background-image: url(./Background.jpg) ;
+/*repetiçao*/
+/*background-repeat: no-repeat;
+/*posicao*/
+/*background-position: top center;
+/*aonde vai ficar a imagem. cover significa que ocupa toda imagem e se adapta*/
+/*background-size: cover;*/
+/*cor imagem repeticao posicao e aonde vai ficar a imagem*/
+background: var(--bg-url) no-repeat top center/cover;
+
+
+}
+body * {
+    font-family: 'Inter', sans-serif;
+    color:var(--text-color);
+}
+
+#container{
+    width: 100%;
+    margin: 56px auto 0px;
+    max-width: 588px;
+    padding: 0 24px;
+}   
+
+#profile{
+text-align: center;  
+padding: 24px;  
+}
+#profile img {
+    width: 112px;
+
+
+}
+#profile p{
+    font-weight: 500;
+    line-height: 24px;
+    margin-top: 8px;
+}
+
+
+/*swicht*/
+#switch {
+    position: relative;
+    width: 64px;
+  
+    margin: 4px auto;
+  }
+  #switch button:hover{
+    outline: px;
+  }
+#switch button{
+width: 32px;
+height: 32px;
+background:white var(--swicht-bg-url) no-repeat center;
+background-image:var(--swicht-bg-url) ;
+
+border: 0;
+border-radius: 50%;
+
+position: absolute;
+top: 50%;
+left: 0;
+z-index: 1;
+transform: translateY(-50%);
+
+animation: slide-back 0.2s;
+}
+
+.light #switch button {
+   
+animation: slide-in 0.2s forwards;
+}
+#switch button:hover {
+
+    outline: 8px solid var(--highlight-color);
+}
+#switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    border-radius: 9999px;
+border: 1px solid var(--stroke-color);
+background: var(--surface-color);
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+}
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+}
+
+ul li a{
+    border: 1px solid rgb(255, 208, 0);
+    /*display flex ajuda a se ajustar os componentes de acordo com a tela*/
+    display: flex;
+    /* aling-items ajudar a contralizar na vertical*/
+    align-items: center;
+    /*justifycontent ajudar a centralizar na horizontal*/
+    justify-content: center;
+    border: 1px solid var(--stroke-color);
+    background: var(---surface-color);
+    border-radius: 8px;
+
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+
+   text-decoration: none;
+   font-weight: 500;
+
+ padding: 16px 24px;
+ transition: 0.2s   ;
+}
+
+
+/* pseudo-selector quando o mouse passa no botao*/
+ul li a:hover {
+    background:var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
+    
+}
+
+/*social links*/
+
+#social-links{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+
+
+    padding: 24px 0;
+   
+    font-size: 24px;
+    
+}
+#social-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  padding: 16px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+#social-links a:hover {
+
+background: var(--highlight-color);
+
+
+}
+footer{
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 14px;
+}
+
+/* media queries*/
+@media (min-width: 700px){
+    :root{
+        --bg-url: url(/assets/bg-desktop.jpg);
+    }
+    .light{
+        --bg-url: url(/assets/bg-desktop-light.jpg);
+    }
+
+}
+
+/*animation*/
+@keyframes slide-in{
+    from{
+        left:0; 
+    }
+    to{
+        left: 50%;
+    }
+}
+@keyframes slide-back{
+        from{
+            left: 50%;
+        }
+        to{
+            left:0; 
+        }
+}
